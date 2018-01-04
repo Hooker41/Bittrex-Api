@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>LendingApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+  </head>
+  <body>
+      <!-- <table id='myTable' cellpadding='1' class='table table-responsive table-striped table-hover table-bordered'> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Watching Period in minute</span>
+                </div>
+                <input id='timeperiod' type="text" class="form-control" placeholder="Type Period" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">BTC / LTC</span>
+                </div>
+                <input id='price' type="text" class="form-control" placeholder="Type Bid BTC Watching Price" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button id='btn_start' type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="onTrackClick();">Start Track</button>
+                </div>
+            </div>
+            <h3 id = 'progressLabel'>Track Stopped</h3>
+            <br>
+            <h1 id = 'bidlabel'>Bid: 0.00</h1>
+            <h1 id = 'asklabel'>Ask: 0.00</h1>
+
+            <table id='myTable' cellpadding='1'>
+                <thead>
+                    <tr>
+                        <th>Buy Order</th>
+                        <th>Sell Order</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+  </body>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+  <script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+	<script src='https://cdn.datatables.net/plug-ins/1.10.16/dataRender/datetime.js'></script>
+	
+  <script src="scripts/app.js"></script>
+</html>
