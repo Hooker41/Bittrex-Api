@@ -2,14 +2,15 @@
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
-  
+    var favicon = require('serve-favicon');
     var bittrex = require('node-bittrex-api');
-    
-    app.set('port', 80);
+
+    app.set('port', 8080);
     app.use(express.static(__dirname + '/app'));  
     app.use(bodyParser.json({limit: '50mb'}));
     app.use(bodyParser.urlencoded({extended:true}));
-  
+    app.use(favicon(path.join(__dirname, 'img', 'favicon.ico')))
+
     app.post('/', function(req, res){
         var paramObj = req.body.dataObj;
         
@@ -17,6 +18,8 @@
             bittrex.getorderbook({ market : 'BTC-LTC', depth : 10, type : 'both' }, function( data, err ) {
                 res.send(data);
             });
+            
+            
         }
 
         if( paramObj.tg_api == 'ticker'){
@@ -24,6 +27,13 @@
                 res.send(data);
             });
         }
+
+        if( paramObj.tg_api == 'markethistory'){
+            bittrex.getmarkethistory({ market : 'BTC-LTC' }, function( data, err ) {
+                res.send(data);
+            });
+        }
+
     });
   
     // connection and express server
