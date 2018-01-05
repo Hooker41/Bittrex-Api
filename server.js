@@ -4,12 +4,13 @@
     var app = express();
     var favicon = require('serve-favicon');
     var bittrex = require('node-bittrex-api');
+    var path = require('path');
 
     app.set('port', 8080);
     app.use(express.static(__dirname + '/app'));  
     app.use(bodyParser.json({limit: '50mb'}));
     app.use(bodyParser.urlencoded({extended:true}));
-    app.use(favicon(path.join(__dirname, 'img', 'favicon.ico')))
+    app.use(favicon(path.join(__dirname, 'app/img', 'favicon.ico')))
 
     app.post('/', function(req, res){
         var paramObj = req.body.dataObj;
